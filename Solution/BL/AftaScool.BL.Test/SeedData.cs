@@ -13,6 +13,7 @@ using AftaScool.BL.Provider.Security;
 using TCR.Lib.Utility;
 using AfterScool.BL.Entities.SecurityData;
 
+
 namespace AftaScool.BL.Test
 {
     public static class SeedData
@@ -121,7 +122,6 @@ namespace AftaScool.BL.Test
 
         #endregion
 
-    
 
         public static List<Privilege> GetPrivileges(DataContext context)
         {

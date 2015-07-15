@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AftaScool.BL.Provider.Security;
-using AfterScool.BL.Entities.SecurityData;
+using AftaScool.BL.Entities.SecurityData;
 
 namespace AftaScool.Models.Account
 {

@@ -6,7 +6,6 @@ using AftaScool.BL.Context;
 using AftaScool.BL.Entities.SecurityData;
 using AftaScool.BL.Provider.Security;
 using TCR.Lib.BL;
-using AfterScool.BL.Entities.SecurityData;
 
 namespace AftaScool.BL.Provider
 {

@@ -8,7 +8,6 @@ using TCR.Lib.Utility;
 using AftaScool.BL.Entities.SecurityData;
 using AftaScool.BL.Types;
 using AftaScool.Models.Enum;
-using AfterScool.BL.Entities.SecurityData;
 
 namespace AftaScool.Controllers
 {

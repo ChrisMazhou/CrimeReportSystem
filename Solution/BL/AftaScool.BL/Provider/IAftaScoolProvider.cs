@@ -1,6 +1,6 @@
 ﻿using AftaScool.BL.Context;
 using AftaScool.BL.Provider.Security;
-using AfterScool.BL.Entities.SecurityData;
+using AftaScool.BL.Entities.SecurityData;
 using System;
 using System.Collections.Generic;
 using System.Linq;

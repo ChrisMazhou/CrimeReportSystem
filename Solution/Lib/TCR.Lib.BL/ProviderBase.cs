@@ -38,12 +38,12 @@ namespace TCR.Lib.BL
             catch (System.Data.Entity.Validation.DbEntityValidationException error)
             {
                 SendError(error);
-                throw ;
+                throw error;
             }
             catch (System.Data.Entity.Infrastructure.DbUpdateException err)
             {
                 SendError(err);
-                throw;
+                throw err;
             }
         }
 
@@ -104,20 +104,10 @@ namespace TCR.Lib.BL
 
         public void Authenticate(TPrivilegeTypeEnum privelege)
         {
-            
-            try
-            {
-                if (!UserIsAllowed(privelege))
-                { throw new GenericSecurityException("Not Allowed!"); }
-                return;
-            }
-            catch (GenericSecurityException)
-            {
-                
-               
-            }
-            
-              //  return;
+            return;
+
+            if (!UserIsAllowed(privelege))
+                throw new GenericSecurityException("Not Allowed!");
         }
 
       

@@ -68,24 +68,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Provider\Security\App.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="App.config" />
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\DataContext.cs" />
-    <Compile Include="Entities\AssessorData\Assessor.cs" />
-    <Compile Include="Entities\AssessorData\AssessorSchool.cs" />
-    <Compile Include="Entities\Behaviour\Behaviour.cs" />
-    <Compile Include="Entities\Behaviour\BehaviourQuestion.cs" />
-    <Compile Include="Entities\LearnerData\Learner.cs" />
-    <Compile Include="Entities\LearnerData\LearnerSchool.cs" />
     <Compile Include="Entities\Logging\SystemLog.cs" />
-    <Compile Include="Entities\QuestionnaireData\Questionnaire.cs" />
-    <Compile Include="Entities\QuestionnaireData\QuestionnaireQuestion.cs" />
-    <Compile Include="Entities\SchoolData\School.cs" />
-    <Compile Include="Entities\SchoolData\SchoolType.cs" />
     <Compile Include="Entities\SecurityData\AuditLog.cs" />
     <Compile Include="Entities\SecurityData\GenderType.cs" />
     <Compile Include="Entities\SecurityData\Privilege.cs" />
@@ -93,36 +81,11 @@
     <Compile Include="Entities\SecurityData\Role.cs" />
     <Compile Include="Entities\SecurityData\StatusType.cs" />
     <Compile Include="Entities\SecurityData\UserIdentity.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provider\AftaScoolProvider.cs" />
-    <Compile Include="Provider\AssessorData\AssessorException.cs" />
-    <Compile Include="Provider\AssessorData\AssessorProvider.cs" />
-    <Compile Include="Provider\AssessorData\IAssessorProvider.cs" />
-    <Compile Include="Provider\AssessorData\IAssessorSchoolProvider.cs" />
-    <Compile Include="Provider\BehaviourData\BehaviourException.cs" />
-    <Compile Include="Provider\BehaviourData\BehaviourProvider.cs" />
-    <Compile Include="Provider\BehaviourData\IBehaviourProvider.cs" />
     <Compile Include="Provider\Email\EmailProvider.cs" />
     <Compile Include="Provider\Email\IEmailProvider.cs" />
     <Compile Include="Provider\IAftaScoolProvider.cs" />
-    <Compile Include="Provider\AssessorData\AssessorSchoolException.cs" />
-    <Compile Include="Provider\AssessorData\AssessorSchoolProvider.cs" />
-    <Compile Include="Provider\LearnerData\ILearnerProvider.cs" />
-    <Compile Include="Provider\LearnerData\ILearnerSchoolProvider.cs" />
-    <Compile Include="Provider\LearnerData\LearnerException.cs" />
-    <Compile Include="Provider\LearnerData\LearnerProvider.cs" />
-    <Compile Include="Provider\LearnerData\LearnerSchoolException.cs" />
-    <Compile Include="Provider\LearnerData\LearnerSchoolProvider.cs" />
-    <Compile Include="Provider\QuestionnaireData\IQuestionnaireProvider.cs" />
-    <Compile Include="Provider\QuestionnaireData\IQuestionnaireQuestionProvider.cs" />
-    <Compile Include="Provider\QuestionnaireData\QuestionnaireException.cs" />
-    <Compile Include="Provider\QuestionnaireData\QuestionnaireProvider.cs" />
-    <Compile Include="Provider\QuestionnaireData\QuestionnaireQuestionException.cs" />
-    <Compile Include="Provider\QuestionnaireData\QuestionnaireQuestionProvider.cs" />
-    <Compile Include="Provider\SchoolData\ISchoolProvider.cs" />
-    <Compile Include="Provider\SchoolData\SchoolException.cs" />
-    <Compile Include="Provider\SchoolData\SchoolProvider.cs" />
     <Compile Include="Provider\Security\ICurrentUser.cs" />
     <Compile Include="Provider\Security\ISecurityProvider.cs" />
     <Compile Include="Provider\Security\LoggedInUser.cs" />
@@ -151,7 +114,6 @@
       <DependentUpon>web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -13,11 +13,7 @@ using AftaScool.BL.Entities.Logging;
 using System.Data.Entity.Infrastructure;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using AftaScool.BL.Entities.LearnerData;
-using AftaScool.BL.Entities.AssessorData;
-using AftaScool.BL.Entities.Behaviour;
-using AftaScool.BL.Entities.QuestionnaireData;
-using AftaScool.BL.Entities.SchoolData;
+using AfterScool.BL.Entities.SecurityData;
 
 
 //this is a comment 
@@ -65,27 +61,7 @@ namespace AftaScool.BL.Context
 
         #region DBSets
 
-
-
-
-        public DbSet<Learner> LearnerSet { get; set; }
-
-        public DbSet<Assessor> AssessorSet { get; set; }
-
-        public DbSet<Behaviour> BehaviourSet { get; set; }
-
-        public DbSet<Questionnaire> QuestionnaireSet { get; set; }
-
-        public DbSet<School> SchoolSet{ get; set; }
-
-        public DbSet<AssessorSchool> AssessorSchoolSet { get; set; }
-
-        public DbSet<BehaviourQuestion> BehaviourQuestionSet { get; set; }
-
-        public DbSet<LearnerSchool> LearnerSchoolSet { get; set; }
-
-        public DbSet<QuestionnaireQuestion> QuestionnaireQuestionSet { get; set; }
-
+       
         public DbSet<Role> RoleSet { get; set; }
         public DbSet<Privilege> PrivilegeSet { get; set; }
         public DbSet<UserIdentity> UserIdentitySet { get; set; }
@@ -120,23 +96,6 @@ namespace AftaScool.BL.Context
                              x.MapLeftKey("UserIdentityId");
                              x.MapRightKey("RoleId");
                          });
-
-            modelBuilder.Entity<Assessor>()
-                         .HasMany(x => x.Learners)
-                         .WithMany(a => a.Assessors)
-                         
-                         .Map(x =>
-                         {
-                             x.ToTable("LearnerAssessor");
-                             x.MapLeftKey("AssessorId");
-                             x.MapRightKey("LearnerId");
-                         });
-
-          
-
-
-
-
         }
 
         public void AddSystemLogEntry(object sender, Guid guid, long? currentUserId,

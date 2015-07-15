@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TCR.Lib.BL
 {
-    public class  GenericSecurityException :
+    public class GenericSecurityException :
      Exception
     {
         public GenericSecurityException(string message) :

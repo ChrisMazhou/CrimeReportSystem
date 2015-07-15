@@ -1,4 +1,4 @@
-﻿using AftaScool.BL.Entities.SecurityData;
+﻿using AfterScool.BL.Entities.SecurityData;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

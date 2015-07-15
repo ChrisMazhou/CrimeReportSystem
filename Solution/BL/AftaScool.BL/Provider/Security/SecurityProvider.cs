@@ -12,6 +12,7 @@ using AftaScool.BL.Types;
 using AftaScool.BL.Util;
 using System.Data.Entity;
 using AftaScool.BL.Provider.Security;
+using AfterScool.BL.Entities.SecurityData;
 
 namespace AftaScool.BL.Provider.Security
 {

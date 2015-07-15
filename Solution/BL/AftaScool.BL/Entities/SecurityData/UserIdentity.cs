@@ -1,6 +1,4 @@
-﻿using AftaScool.BL.Entities.AssessorData;
-using AftaScool.BL.Entities.LearnerData;
-using AftaScool.BL.Entities.SecurityData;
+﻿using AfterScool.BL.Entities.SecurityData;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -79,9 +77,6 @@ namespace AftaScool.BL.Entities.SecurityData
         public List<PrivilegeType> AllowedPrivileges { get; set; }
 
         public virtual ICollection<Role> Roles { get; set; }
-     
-        public virtual ICollection<Assessor> Assessors { get; set; }
-        
         
 
     }

@@ -47,16 +47,16 @@ namespace AftaScool.BL.Provider.LearnerData
 
 
             //set attributes
-            saveLearner.LearnerName = learnername;
-            saveLearner.LearnerName = learnersurname;
+            saveLearner.UserIdentities.FirstName = learnername;
+            saveLearner.UserIdentities.Surname = learnersurname;
             saveLearner.Grade = grade;
-            saveLearner.AddressLine1 = addressLine1;
-            saveLearner.AddressLine2 = addressLine2; 
-            saveLearner.City = city;
-            saveLearner.PostalCode = postalCode;
-            saveLearner.Telephone = telephone ;
-            saveLearner.Gender = gender;
-            saveLearner.IdPassportNum = idPassportNum;
+            saveLearner.UserIdentities.AddressLine1 = addressLine1;
+            saveLearner.UserIdentities.AddressLine2 = addressLine2;
+            saveLearner.UserIdentities.City = city;
+            saveLearner.UserIdentities.PostalCode = postalCode;
+            saveLearner.UserIdentities.Telephone = telephone;
+            saveLearner.UserIdentities.Gender = gender;
+            saveLearner.UserIdentities.IdPassportNum = idPassportNum;
 
 
             DataContextSaveChanges();
@@ -76,16 +76,15 @@ namespace AftaScool.BL.Provider.LearnerData
         public IQueryable<Learner> GetLearners()
         {
             var q = from h in DataContext.LearnerSet
-                    orderby h.LearnerName
+                    orderby h.UserIdentities.FirstName
                     select h;
 
             return q;
         }
 
-     
-
-        
-
-        
+        public Learner GetLearner(long id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

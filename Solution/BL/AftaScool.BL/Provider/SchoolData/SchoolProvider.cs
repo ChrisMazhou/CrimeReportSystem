@@ -70,5 +70,11 @@ namespace AftaScool.BL.Provider.SchoolData
             return q;
         }
 
+        public School GetSchool(long id)
+        {
+            //Please implement this method.
+            throw new NotImplementedException();
+        }
+
     }
 }

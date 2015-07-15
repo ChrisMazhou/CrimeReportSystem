@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AftaScool.BL.Entities.SchoolData;
 
+
 namespace AftaScool.BL.Provider.SchoolData
 {
     public interface ISchoolProvider:IAftaScoolProvider
@@ -15,5 +16,8 @@ namespace AftaScool.BL.Provider.SchoolData
         void ArchiveSchool(long id);
 
         IQueryable<School> GetSchools();
+
+         School GetSchool(long id);
+       
     }
 }

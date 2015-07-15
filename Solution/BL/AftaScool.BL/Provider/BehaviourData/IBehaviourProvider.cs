@@ -15,6 +15,8 @@ namespace AftaScool.BL.Provider.BehaviourData
 
         IQueryable<Behaviour> GetBehaviourTypes();
 
+        Behaviour GetBehavior(long id);
+
 
 
 

@@ -18,6 +18,8 @@ namespace AftaScool.BL.Provider.LearnerData
 
         IQueryable<Learner> GetLearners();
 
+        Learner GetLearner(long id);
+
 
     }
 }

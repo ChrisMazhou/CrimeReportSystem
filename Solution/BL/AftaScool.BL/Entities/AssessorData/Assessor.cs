@@ -18,11 +18,10 @@ namespace AftaScool.BL.Entities.AssessorData
      public virtual long Id { get; set; }
 
       public virtual long UserIdentityId { get; set; }
-     [ForeignKey("UserIdentityId")]
+      [ForeignKey("UserIdentityId")]
      
      public virtual UserIdentity UserIdentities { get; set; }
-
-     
+             
      public virtual ICollection<Learner> Learners { get; set; }
 
      public virtual ICollection<AssessorSchool> AssessorSchools { get; set; }

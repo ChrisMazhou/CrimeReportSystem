@@ -11,7 +11,7 @@ namespace AftaScool.BL.Entities.AssessorData
     [Table ("AssessorSchool")]
     public class AssessorSchool
     {
-        //Please include database indexes on this entity.
+        //Please include database indexes on this entity to ease query
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public virtual long Id { get; set; }

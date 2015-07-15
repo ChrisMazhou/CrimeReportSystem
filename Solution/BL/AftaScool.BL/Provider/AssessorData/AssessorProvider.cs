@@ -22,7 +22,7 @@ namespace AftaScool.BL.Provider.AssessorData
 
 
         #region Save Asessor Implementation
-
+        //Sample method of how to save accessor and Learner
         //Assessor SaveAssessor(long? id, long userId, string emailAddress, string title, string firstName,
          //  string surname, string idOrPassportNumber, string telephone, string addressLine1, string addressLine2, string city, string postalCode)
          // {

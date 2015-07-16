@@ -21,32 +21,41 @@ namespace AftaScool.BL.Provider.LearnerData
         { }
         #endregion
 
-        public Learner LearnerSave(long? id, long userId, string learnername, string learnersurname, string grade, string idPassportNum, GenderType gender, string addressLine1, string addressLine2, string city, string postalCode, string telephone)
+        public Learner LearnerSave(long? id, long userId, string learnername, string learnersurname, string grade, string idPassportNum, GenderType gender, string addressLine1, string addressLine2,
+             string city, string postalCode, string telephone)
         {
 
-
+          
             Authenticate(PrivilegeType.LearnerMaintenance);
 
-            Learner saveLearner = null;
+            Learner saveLearner = new Learner();
 
-            saveLearner = DataContext.LearnerSet.Where(a => a.UserIdentities.Id == userId && a.Id != id).SingleOrDefault();
+            saveLearner = DataContext.LearnerSet.Where(a => a.UserIdentities.Id== userId && a.Id != id).SingleOrDefault();
 
 
             if (saveLearner != null && saveLearner.UserIdentities.IdPassportNum == idPassportNum)
                 throw new LearnerException("Learner with the name : " + learnername + " already exists.");
 
-
             if (id != null && id > 0)
-                saveLearner = DataContext.LearnerSet.Where(a => a.Id == id).SingleOrDefault();
+            {
+                if (saveLearner.Id != id)
+                {
+                    saveLearner = DataContext.LearnerSet.Where(p => p.Id == id).SingleOrDefault();
+                }
+            }
             else
             {
                 saveLearner = new Learner();
-                saveLearner.UserIdentities.Active = true ;
+                //  saveLearner.UserIdentities.Active = true;
+                saveLearner.UserIdentities = DataContext.UserIdentitySet.Where(d => d.Id == userId).Single();
+                saveLearner.UserIdentities.Id = userId;
                 DataContext.LearnerSet.Add(saveLearner);
             }
 
          
             //set attributes
+          //  saveLearner.UserIdentities.Active = true;
+            saveLearner.Grade = grade;
             saveLearner.UserIdentities.FirstName = learnername;
             saveLearner.UserIdentities.Surname = learnersurname;
             saveLearner.UserIdentities.AddressLine1 = addressLine1;
@@ -57,7 +66,7 @@ namespace AftaScool.BL.Provider.LearnerData
             saveLearner.UserIdentities.Gender = gender;
             saveLearner.UserIdentities.IdPassportNum = idPassportNum;
             saveLearner.UserIdentities.Id = userId;
-            saveLearner.Grade = grade;
+            
 
 
             DataContextSaveChanges();
@@ -79,7 +88,7 @@ namespace AftaScool.BL.Provider.LearnerData
             Authenticate(PrivilegeType.LearnerMaintenance);
 
             var learner = DataContext.LearnerSet.Where(a => a.Id == id).Single();
-            learner.UserIdentities.Active = true;
+            //learner.UserIdentities.Active = true;
             DataContextSaveChanges();
 
 

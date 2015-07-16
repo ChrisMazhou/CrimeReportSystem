@@ -20,11 +20,13 @@ namespace AftaScool.BL.Entities.LearnerData
      [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
      public virtual long Id { get; set; }
 
+
+     public virtual string Grade { get; set; }
+
      public virtual long UserIdentityId { get; set; }
      [ForeignKey("UserIdentityId")]
      public virtual UserIdentity UserIdentities { get; set; }
 
-     public virtual string Grade { get; set; }
   
      public virtual ICollection<Questionnaire> Questionnaires { get; set; }
      public virtual ICollection<LearnerSchool> LearnerSchools { get; set; }

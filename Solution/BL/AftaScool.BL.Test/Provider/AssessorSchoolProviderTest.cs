@@ -26,7 +26,7 @@ namespace AftaScool.BL.Test.Provider
             IAssessorSchoolProvider provider = new AssessorSchoolProvider(Context,user);
             ISchoolProvider skul = new SchoolProvider(Context, user);
             IAssessorProvider _assesor = new AssessorProvider(Context, user);
-            var assess = _assesor.createAssessor(null,user.Id );
+            var assess = _assesor.SaveAssessor(null, user.Id, "Test UserName", "Test password", "Test email", "Test Title", "Test FirstName", "Test Surname", "9202280168083", Entities.SecurityData.GenderType.Female, "0124566512", "address line1", "address line 2", "Centurion", "0124");
             var skuul = skul.SchoolSave(null, "Carel De Vet HighSchool", "145 Gamyn Ave", "North", "Vereniging", "0001");
             
 
@@ -46,7 +46,7 @@ namespace AftaScool.BL.Test.Provider
             IAssessorSchoolProvider provider = new AssessorSchoolProvider(Context, user);
             IAssessorProvider _assesor = new AssessorProvider(Context, user);
             ISchoolProvider skul = new SchoolProvider(Context, user);
-            var assess = _assesor.createAssessor(null, user.Id);
+            var assess = _assesor.SaveAssessor(null, user.Id, "Test UserName", "Test password", "Test email", "Test Title", "Test FirstName", "Test Surname", "9202280168083", Entities.SecurityData.GenderType.Female, "0124566512", "address line1", "address line 2", "Centurion", "0124");
             var skuul = skul.SchoolSave(null, "Carel De Vet HighSchool", "145 Gamyn Ave", "North", "Vereniging", "0001");
             var skuul2 = skul.SchoolSave(null, "piet", "145 Gamyn Ave", "North", "Vereniging", "0001");
 

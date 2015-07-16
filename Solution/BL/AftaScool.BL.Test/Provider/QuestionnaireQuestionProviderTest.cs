@@ -31,8 +31,8 @@ namespace AftaScool.BL.Test.Provider
             IQuestionnaireProvider que = new QuestionnaireProvider(Context, accountUser);
             AssessorProvider assesso = new AssessorProvider(Context, accountUser);
             ILearnerProvider learner = new LearnerProvider(Context, accountUser);
-            var learn = learner.LearnerSave(null, accountUser.Id, "Test LearnerName", "Test LearnerSurname", "grade", "9202280168083", Entities.SecurityData.GenderType.Female, "address line1", "address line 2", "Centurion", "0124", "0113450000");
-            var ass = assesso.SaveAssessor(null, accountUser.Id,"Test UserName","Test password","Test email","Test Title","Test FirstName","Test Surname","9202280168083",Entities.SecurityData.GenderType.Female,"0124566512","address line1", "address line 2","Centurion", "0124");
+            var learn = learner.LearnerSave(null, "Kefilwe", "Mkhwanazi", "grade", "9202280168083", Entities.SecurityData.GenderType.Female, "address line1", "address line 2", "Centurion", "0124", "0113450000");
+            var ass = assesso.createAssessor(null, accountUser.Id);
             IQuestionnaireQuestionProvider que2 = new QuestionnaireQuestionProvider(Context, accountUser);
             var beh = behaviour.saveBehaviour(null, "Rape");
             var questionnaire = que.saveQuestionnaire(null, ass.Id, learn.Id, DateTime.Now);
@@ -51,8 +51,8 @@ namespace AftaScool.BL.Test.Provider
              IQuestionnaireProvider que = new QuestionnaireProvider(Context, accountUser);
              AssessorProvider assesso = new AssessorProvider(Context, accountUser);
              ILearnerProvider learner = new LearnerProvider(Context, accountUser);
-             var learn = learner.LearnerSave(null, accountUser.Id, "Test LearnerName", "Test LearnerSurname", "grade", "9202280168083", Entities.SecurityData.GenderType.Female, "address line1", "address line 2", "Centurion", "0124", "0113450000");
-             var ass = assesso.SaveAssessor(null, accountUser.Id, "Test UserName", "Test password", "Test email", "Test Title", "Test FirstName", "Test Surname", "9202280168083", Entities.SecurityData.GenderType.Female, "0124566512", "address line1", "address line 2", "Centurion", "0124");
+             var learn = learner.LearnerSave(null, "Kefilwe", "Mkhwanazi", "grade", "9202280168083", Entities.SecurityData.GenderType.Female, "address line1", "address line 2", "Centurion", "0124", "0113450000");
+             var ass = assesso.createAssessor(null, accountUser.Id);
 
              IBehaviourProvider behaviour = new BehaviourProvider(Context, accountUser);
              var beh = behaviour.saveBehaviour(null, "Rape");

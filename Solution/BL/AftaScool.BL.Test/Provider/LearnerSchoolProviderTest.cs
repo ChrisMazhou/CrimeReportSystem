@@ -24,7 +24,7 @@ namespace AftaScool.BL.Test.Provider
             ISchoolProvider skul = new SchoolProvider(Context, user);
             ILearnerProvider learner = new LearnerProvider(Context, user);
             LearnerSchoolProvider provider = new LearnerSchoolProvider(Context, user);
-            var learn = learner.LearnerSave(null,user.Id, "Test LearnerName", "Test LearnerSurname", "grade", "9202280168083", Entities.SecurityData.GenderType.Female, "address line1", "address line 2", "Centurion", "0124", "0113450000");
+            var learn = learner.LearnerSave(null, "Test LearnerName", "Test LearnerSurname", "grade", "9202280168083", Entities.SecurityData.GenderType.Female, "address line1", "address line 2", "Centurion", "0124", "0113450000");
             var skuul = skul.SchoolSave(null, "Carel De Vet HighSchool", "145 Gamyn Ave", "North", "Vereniging", "0001");
 
 
@@ -40,7 +40,7 @@ namespace AftaScool.BL.Test.Provider
             ILearnerSchoolProvider provider = new LearnerSchoolProvider(Context, user);
             ISchoolProvider skul = new SchoolProvider(Context, user);
             ILearnerProvider learner = new LearnerProvider(Context, user);
-            var learn = learner.LearnerSave(null,user.Id, "Test LearnerName", "Test LearnerSurname", "grade", "9202280168083", Entities.SecurityData.GenderType.Female, "address line1", "address line 2", "Centurion", "0124", "0113450000");
+            var learn = learner.LearnerSave(null, "Test LearnerName", "Test LearnerSurname", "grade", "9202280168083", Entities.SecurityData.GenderType.Female, "address line1", "address line 2", "Centurion", "0124", "0113450000");
             var skuul = skul.SchoolSave(null, "Carel De Vet HighSchool", "145 Gamyn Ave", "North", "Vereniging", "0001");
 
 

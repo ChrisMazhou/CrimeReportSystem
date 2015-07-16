@@ -11,7 +11,6 @@ namespace AftaScool.BL.Provider.AssessorData
     {
 
         AssessorSchool saveAssessorSchool(long? id, long assessorId, long schoolId, DateTime startDate, DateTime endDate);
-       // void ArchiveAssessorSchoolProvider(long id);
         IQueryable<AssessorSchool> GetAssessorSchool();
 
     }

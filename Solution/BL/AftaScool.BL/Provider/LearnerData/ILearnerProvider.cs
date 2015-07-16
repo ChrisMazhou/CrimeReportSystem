@@ -8,17 +8,16 @@ using System.Threading.Tasks;
 
 namespace AftaScool.BL.Provider.LearnerData
 {
-   public interface ILearnerProvider : IAftaScoolProvider
+    public interface ILearnerProvider : IAftaScoolProvider
     {
 
-        Learner LearnerSave(long? id, string learnername, string learnersurname, string grade, string idPassportNum, GenderType gender, string addressLine1, string addressLine2,
+        Learner LearnerSave(long? id, long userId, string learnername, string learnersurname, string grade, string idPassportNum, GenderType gender, string addressLine1, string addressLine2,
              string city, string postalCode, string telephone);
 
-        void ArchiveLearner(long id);
 
         IQueryable<Learner> GetLearners();
 
-        Learner GetLearner(long id);
+        void GetLearner(long id);
 
 
     }

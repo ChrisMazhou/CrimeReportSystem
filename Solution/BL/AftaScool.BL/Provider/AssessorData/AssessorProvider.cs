@@ -19,103 +19,118 @@ namespace AftaScool.BL.Provider.AssessorData
         { }
         #endregion
 
-
-
         #region Save Asessor Implementation
-        //Sample method of how to save accessor and Learner
-        //Assessor SaveAssessor(long? id, long userId, string emailAddress, string title, string firstName,
-         //  string surname, string idOrPassportNumber, string telephone, string addressLine1, string addressLine2, string city, string postalCode)
-         // {
-         //     if (userId != CurrentUser.Id)
-         //         Authenticate(PrivilegeType.AssessorMaintenance);
 
-         //     var saveAssessor = new Assessor;
+        public Assessor SaveAssessor(long? id, long userId, string userName, string password, string emailAddress, string title, string firstName, string surname, string idOrPassportNumber, GenderType gender,
+            string telephone, string addressLine1, string addressLine2, string city, string postalCode)
+         {
 
-         //   if (saveAssessor != null && (id == null) || (id == 0))
-         //   {
-         //       throw new AssessorException("This assessor already exist.");
-         //   }
+             if (userId != CurrentUser.Id)
+                  Authenticate(PrivilegeType.AssessorMaintenance);
 
-         //   if (id != null && id > 0)
-         //   {
-         //       if (saveAssessor.Id != id)
-         //       {
-                    
-         //       }
-         //   }
-         //   else
-         //   {
-         //       saveAssessor = new Assessor();
-         //       saveAssessor.UserIdentities = DataContext.UserIdentitySet.Where(d => d.Id == userId).Single();
-         //       saveAssessor.UserIdentityId = userId;
-         //       DataContext.AssessorSet.Add(saveAssessor);
-         //   }
+            Assessor createAssessor = new Assessor();
+
+             createAssessor = DataContext.AssessorSet.Where(p => p.UserIdentities.PasswordHash == password && p.UserIdentities.UserName == userName).SingleOrDefault();
+
+             if (createAssessor != null && (id == null) || (id == 0))
+             {
+                 throw new AssessorException("This assessor already exist.");
+             }
+
+             if (id != null && id > 0)
+             {
+                 if (createAssessor.Id != id)
+                 {
+                     createAssessor = DataContext.AssessorSet.Where(p => p.Id == id).SingleOrDefault();
+                 }
+             }
+             else
+             {
+                 createAssessor = new Assessor();
+                 createAssessor.UserIdentities = DataContext.UserIdentitySet.Where(d => d.Id == userId).Single();
+                 createAssessor.UserIdentityId = userId;
+                 DataContext.AssessorSet.Add(createAssessor);
+             }
 
 
-         //   saveAssessor.UserIdentities.Title = title;
-         //   saveAssessor.UserIdentities.FirstName = firstName;
-         //   saveAssessor.UserIdentities.Surname = surname;
-         //   saveAssessor.UserIdentities.IdPassportNum = idOrPassportNumber;
-         //   saveAssessor.UserIdentities.Telephone = telephone;
-         //   saveAssessor.UserIdentities.EmailAddress = emailAddress;
-         //   saveAssessor.UserIdentities.AddressLine1 = addressLine1;
-         //   saveAssessor.UserIdentities.AddressLine2 = addressLine2;
-         //   saveAssessor.UserIdentities.City = city;
-         //   saveAssessor.UserIdentities.PostalCode = postalCode;
+             createAssessor.UserIdentities.Title = title;
+             createAssessor.UserIdentities.FirstName = firstName;
+             createAssessor.UserIdentities.Surname = surname;
+             createAssessor.UserIdentities.IdPassportNum = idOrPassportNumber;
+             createAssessor.UserIdentities.Telephone = telephone;
+             createAssessor.UserIdentities.EmailAddress = emailAddress;
+             createAssessor.UserIdentities.AddressLine1 = addressLine1;
+             createAssessor.UserIdentities.AddressLine2 = addressLine2;
+             createAssessor.UserIdentities.City = city;
+             createAssessor.UserIdentities.PostalCode = postalCode;
+             createAssessor.UserIdentities.PasswordHash = password;
+             createAssessor.UserIdentities.UserName = userName;
+             createAssessor.UserIdentities.Gender = gender;
+            createAssessor.UserIdentities.Id = userId;
 
-         //   DataContextSaveChanges();
+             DataContextSaveChanges();
+            return createAssessor;
 
-         //   return saveAssessor;
-         //}
+
+        }
 #endregion 
+         public IQueryable<Assessor> GetAssessor()
+         {
+
+             var q = from h in DataContext.AssessorSet
+                     orderby h.UserIdentities.FirstName
+                     select h;
+
+             return q;
+
+         }
+
+        public void GetAssessor(long id)
+         {
+             Authenticate(PrivilegeType.AssessorMaintenance);
+
+             var assessor = DataContext.AssessorSet.Where(a => a.Id == id).Single();
+            // assessor.Status = StatusType.Archive;
+
+             DataContextSaveChanges();
+             
+         }
          
-         
 
 
 
 
-        public Assessor createAssessor(long? id, long userId)
-        {
+        //public Assessor createAssessor(long? id, long userId)
+        //{
 
-            Authenticate(PrivilegeType.AssessorMaintenance);
-
-
-
-            Assessor saveAssessor = new Assessor();
+        //    Authenticate(PrivilegeType.AssessorMaintenance);
 
 
-            // saveAssessor = DataContext.AssessorSet.Where(a => a.UserIdentityId == userId).SingleOrDefault();
 
-            if (id != null && id > 0)
-                saveAssessor = DataContext.AssessorSet.Where(a => a.Id == id).SingleOrDefault();
-            else
-            {
-                saveAssessor = new Assessor();
-                DataContext.AssessorSet.Add(saveAssessor);
-            }
-
-            saveAssessor.UserIdentityId = userId;
-            DataContextSaveChanges();
-            return saveAssessor;
-
-        }
-
-        public IQueryable<Assessor> GetAssessor()
-        {
-
-            var q = from h in DataContext.AssessorSet
-                    orderby h.UserIdentityId
-                    select h;
-
-            return q;
-
-        }
+        //    Assessor createAssessor = new Assessor();
 
 
-        public Assessor GetAssessor(long id)
-        {
-           //Please implement this method.
-            throw new NotImplementedException();
-        }
+        //    // createAssessor = DataContext.AssessorSet.Where(a => a.UserIdentityId == userId).SingleOrDefault();
+
+        //    if (id != null && id > 0)
+        //        createAssessor = DataContext.AssessorSet.Where(a => a.Id == id).SingleOrDefault();
+        //    else
+        //    {
+        //        createAssessor = new Assessor();
+        //        DataContext.AssessorSet.Add(createAssessor);
+        //    }
+
+        //    createAssessor.UserIdentityId = userId;
+        //    DataContextSaveChanges();
+        //    return createAssessor;
+
+        //}
+
+
+
+
+
+
+       
     }
 }

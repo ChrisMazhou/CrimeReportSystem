@@ -18,34 +18,36 @@ namespace AftaScool.BL.Test.Provider
     {
         [TestMethod]
         [TestCategory("Provider.Learner")]
-        public void LearnerSave()
+        public void SaveLearner()
         {
             var accountUser = SeedData.CreateAdminUser(Context);
-            LearnerProvider provider = new LearnerProvider(Context, accountUser);
+            ILearnerProvider provider = new LearnerProvider(Context, accountUser);
 
             //Act
-            var learner = provider.LearnerSave(null, accountUser.Id,"LearnerName", "LearnerSurname", "grade", "92022801680080", Entities.SecurityData.GenderType.Male, "address line1", "address line 2", "Centurion", "0124", "0113450000");
-           //Test
+            var learner = provider.LearnerSave(null, "Test LearnerName", "Test LearnerSurname", "grade", "9202280168083", Entities.SecurityData.GenderType.Female, "address line1", "address line 2", "Centurion", "0124", "0113450000");
+
+            //Test
             learner.ShouldNotBeNull();
             learner.Id.ShouldBeGreaterThan(0);
-          // learner.UserIdentities.Active = true;
+            learner.Status.ShouldEqual(Types.StatusType.Active);
         
         }
          [TestMethod]
         [TestCategory("Provider.Learner")]
-        public void GetLearner()
+        public void LearnerArchive()
         {
             //Setup
             var accountUser = SeedData.CreateAdminUser(Context);
             ILearnerProvider provider = new LearnerProvider(Context, accountUser);
-            var learner = provider.LearnerSave(null, accountUser.Id, "Test LearnerName", "Test LearnerSurname", "grade", "9202280168083", Entities.SecurityData.GenderType.Female, "address line1", "address line 2", "Centurion", "0124", "0113450000");
-           
+            var learner = provider.LearnerSave(null, "Test LearnerName", "Test LearnerSurname", "grade", "9202280168083", Entities.SecurityData.GenderType.Male, "address line1", "address line 2", "Centurion", "0124", "0113450000");
+
             //Act
-            provider.GetLearner(learner.Id);
+            provider.ArchiveLearner(learner.Id);
 
             //Test
             var testLearner = provider.GetLearners().Where(a => a.Id == learner.Id).Single();
-            testLearner.UserIdentities.Active = true;
+            testLearner.Status.ShouldEqual(Types.StatusType.Archive);
+
         }
          [TestMethod]
          [TestCategory("Provider.Learner")]
@@ -53,9 +55,9 @@ namespace AftaScool.BL.Test.Provider
          {
              var accountUser = SeedData.CreateAdminUser(Context);
              ILearnerProvider provider = new LearnerProvider(Context, accountUser);
-             var learner = provider.LearnerSave(null, accountUser.Id, "Test LearnerName", "Test LearnerSurname", "grade", "9202280168083", Entities.SecurityData.GenderType.Female, "address line1", "address line 2", "Centurion", "0124", "0113450000");
-             var learner2 = provider.LearnerSave(null, accountUser.Id, "Test LearnerName", "Test LearnerSurname", "grade", "9202280168003", Entities.SecurityData.GenderType.Male, "address line1", "address line 2", "Centurion", "0124", "0113450000");
-           
+             var learner = provider.LearnerSave(null, "Test LearnerName", "Test LearnerSurname", "grade", "9202280168083", Entities.SecurityData.GenderType.Male, "address line1", "address line 2", "Centurion", "0124", "0113450000");
+             var learner2 = provider.LearnerSave(null, "Test LearnerName2", "Test LearnerSurname2", "grade2", "9102280168083", Entities.SecurityData.GenderType.Female, "address line1", "address line 2", "Centurion", "0124", "0113550000");
+        
              //Act
              var z = provider.GetLearners().Count();
 

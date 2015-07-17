@@ -83,7 +83,6 @@ namespace AftaScool.BL.Entities.SecurityData
         public virtual ICollection<Assessor> Assessors { get; set; }
 
         public virtual ICollection<Learner> Learners { get; set; }
-
         
         
 

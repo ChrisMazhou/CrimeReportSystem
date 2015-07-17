@@ -17,7 +17,6 @@ namespace AftaScool.BL.Provider.SchoolData
 
         IQueryable<School> GetSchools();
 
-         School GetSchool(long id);
        
     }
 }

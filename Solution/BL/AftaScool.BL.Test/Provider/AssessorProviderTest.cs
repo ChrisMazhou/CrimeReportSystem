@@ -27,7 +27,7 @@ namespace AftaScool.BL.Test.Provider
 
 
             //Act
-            var assessor = provider.createAssessor(null, accountUser.Id);
+            var assessor = provider.SaveAssessor(null, accountUser.Id,"Test UserName","Test password","Test email","Test Title","Test FirstName","Test Surname","9202280168083",Entities.SecurityData.GenderType.Female,"0124566512","address line1", "address line 2","Centurion", "0124");
 
             //Test
             assessor.ShouldNotBeNull();
@@ -42,7 +42,7 @@ namespace AftaScool.BL.Test.Provider
             var accountUser = SeedData.CreateAdminUser(Context);
 
             IAssessorProvider provider = new AssessorProvider(Context, accountUser);
-            var assessor = provider.createAssessor(null, accountUser.Id);
+            var assessor = provider.SaveAssessor(null, accountUser.Id, "Test UserName", "Test password", "Test email", "Test Title", "Test FirstName", "Test Surname", "9202280168083", Entities.SecurityData.GenderType.Female, "0124566512", "address line1", "address line 2", "Centurion", "0124");
 
 
             //Act

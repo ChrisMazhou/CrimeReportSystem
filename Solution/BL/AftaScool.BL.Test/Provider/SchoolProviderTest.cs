@@ -1,12 +1,14 @@
-﻿using AftaScool.BL.Entities.SchoolData;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using SoftwareApproach.TestingExtensions;
+using AftaScool.BL.Entities.SchoolData;
 using AftaScool.BL.Provider.SchoolData;
 using AftaScool.BL.Test;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SoftwareApproach.TestingExtensions;
-using System;
-using System.Linq;
-using System.Text;
-using System.Diagnostics.CodeAnalysis;
 
 namespace AftaScool.BL.Test.Provider
 {
@@ -61,7 +63,6 @@ namespace AftaScool.BL.Test.Provider
 
             //Test
             var testSchool = provider.GetSchools().Where(a => a.Id == school.Id).Single();
-            
         }
 
 

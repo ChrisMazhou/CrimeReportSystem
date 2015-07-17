@@ -12,7 +12,6 @@ namespace AftaScool.BL.Provider.LearnerData
         LearnerSchool saveLearnerSchool(long? id, long learnerId, long schoolId, DateTime startDate, DateTime endDate);
 
      
-
         IQueryable<LearnerSchool> GetLearnerSchools();
     }
 }

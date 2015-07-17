@@ -7,10 +7,9 @@ namespace AftaScool.BL.Entities.SchoolData
 {
     public enum SchoolType
     {
-        // SchoolType should be either Pre-primary, Primary, HighSchool
-        Active,
-        Inactive,
-        Archive
+        PrePrimary,
+        Primary,
+        HighSchool
 
     }
 }

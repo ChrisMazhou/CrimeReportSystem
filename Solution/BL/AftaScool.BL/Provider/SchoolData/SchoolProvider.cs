@@ -57,7 +57,7 @@ namespace AftaScool.BL.Provider.SchoolData
             Authenticate(PrivilegeType.SchoolMaintenance);
 
             var school = DataContext.SchoolSet.Where(a => a.Id == id).Single();
-            school.Status = SchoolType.Active;
+            school.Status = SchoolType.Primary;
             DataContextSaveChanges();
         }
 
@@ -70,11 +70,5 @@ namespace AftaScool.BL.Provider.SchoolData
             return q;
         }
 
-        public School GetSchool(long id)
-        {
-            //Please implement this method.
-            throw new NotImplementedException();
-        }
-
-    }
+   }
 }

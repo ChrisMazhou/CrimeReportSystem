@@ -88,11 +88,8 @@ namespace AftaScool.BL.Provider.LearnerData
             Authenticate(PrivilegeType.LearnerMaintenance);
 
             var learner = DataContext.LearnerSet.Where(a => a.Id == id).Single();
-            //learner.UserIdentities.Active = true;
             DataContextSaveChanges();
 
-
-            //return learner;
         }
 
 

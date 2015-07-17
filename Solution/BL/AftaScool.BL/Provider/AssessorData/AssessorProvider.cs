@@ -90,47 +90,10 @@ namespace AftaScool.BL.Provider.AssessorData
              Authenticate(PrivilegeType.AssessorMaintenance);
 
              var assessor = DataContext.AssessorSet.Where(a => a.Id == id).Single();
-            // assessor.Status = StatusType.Archive;
-
              DataContextSaveChanges();
              
          }
          
 
-
-
-
-        //public Assessor createAssessor(long? id, long userId)
-        //{
-
-        //    Authenticate(PrivilegeType.AssessorMaintenance);
-
-
-
-        //    Assessor createAssessor = new Assessor();
-
-
-        //    // createAssessor = DataContext.AssessorSet.Where(a => a.UserIdentityId == userId).SingleOrDefault();
-
-        //    if (id != null && id > 0)
-        //        createAssessor = DataContext.AssessorSet.Where(a => a.Id == id).SingleOrDefault();
-        //    else
-        //    {
-        //        createAssessor = new Assessor();
-        //        DataContext.AssessorSet.Add(createAssessor);
-        //    }
-
-        //    createAssessor.UserIdentityId = userId;
-        //    DataContextSaveChanges();
-        //    return createAssessor;
-
-        //}
-
-
-
-
-
-
-       
     }
 }

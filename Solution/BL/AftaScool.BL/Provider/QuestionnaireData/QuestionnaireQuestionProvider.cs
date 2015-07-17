@@ -25,7 +25,7 @@ namespace AftaScool.BL.Provider.QuestionnaireData
 
             QuestionnaireQuestion saveResults = new QuestionnaireQuestion();
 
-            //saveResults = DataContext.QuestionnaireQuestionSet.Where(a => a.BehaviourQuestionId == behaviourId && a.QuestionnaireId == questionnaireId).SingleOrDefault();
+            saveResults = DataContext.QuestionnaireQuestionSet.Where(a => a.BehaviourQuestionId == behaviourId && a.QuestionnaireId == questionnaireId).SingleOrDefault();
 
             if(trait== null)
                 throw new QuestionnaireQuestionException("Trait cannot be empty");
@@ -55,7 +55,7 @@ namespace AftaScool.BL.Provider.QuestionnaireData
         {
 
             var q = from h in DataContext.QuestionnaireQuestionSet
-                    orderby h.BehaviourQuestionId
+                    orderby h.Id
                     select h;
 
             return q;

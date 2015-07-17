@@ -81,6 +81,7 @@
     <Compile Include="Provider\BehaviourProviderTest.cs" />
     <Compile Include="Provider\QuestionnaireQuestionProviderTest.cs" />
     <Compile Include="Provider\AssessorProviderTest.cs" />
+    <Compile Include="Provider\BehaviourQuestionTest.cs" />
     <Compile Include="SeedData.cs" />
   </ItemGroup>
   <ItemGroup>

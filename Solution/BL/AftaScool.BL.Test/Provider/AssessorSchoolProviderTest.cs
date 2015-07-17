@@ -57,7 +57,7 @@ namespace AftaScool.BL.Test.Provider
             var z = provider.GetAssessorSchool().Count();
 
             //Test
-           // z.ShouldEqual(2);
+            z.ShouldEqual(2);
         }
 
 

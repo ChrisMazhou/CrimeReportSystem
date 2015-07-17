@@ -102,7 +102,10 @@
     <Compile Include="Provider\AssessorData\IAssessorSchoolProvider.cs" />
     <Compile Include="Provider\BehaviourData\BehaviourException.cs" />
     <Compile Include="Provider\BehaviourData\BehaviourProvider.cs" />
+    <Compile Include="Provider\BehaviourData\BehaviourQuestionException.cs" />
+    <Compile Include="Provider\BehaviourData\BehaviourQuestionProvider.cs" />
     <Compile Include="Provider\BehaviourData\IBehaviourProvider.cs" />
+    <Compile Include="Provider\BehaviourData\IBehaviourQuestionProvider.cs" />
     <Compile Include="Provider\Email\EmailProvider.cs" />
     <Compile Include="Provider\Email\IEmailProvider.cs" />
     <Compile Include="Provider\IAftaScoolProvider.cs" />

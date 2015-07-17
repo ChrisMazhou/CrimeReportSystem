@@ -8,6 +8,8 @@ using AftaScool.BL.Provider.QuestionnaireData;
 using AftaScool.BL.Provider.LearnerData;
 using AftaScool.BL.Context;
 using AftaScool.BL.Provider.AssessorData;
+using System.Linq;
+using System.Text;
 
 namespace AftaScool.BL.Test.Provider
 {
@@ -49,9 +51,11 @@ namespace AftaScool.BL.Test.Provider
             var school = provider.saveQuestionnaire(null, ass.Id, learn.Id, DateTime.Today);
             var school1 = provider.saveQuestionnaire(null, ass.Id, learn2.Id, DateTime.Today);
 
-            var x = provider.GetQuestionnaires();
+            var x = provider.GetQuestionnaires().Count();
 
+            //Test
 
+            x.ShouldEqual(2);
         }
         /* [TestMethod]
          [TestCategory("Provider.Questionnaire")]
@@ -66,6 +70,6 @@ namespace AftaScool.BL.Test.Provider
 
          }*/
 
-
+      
     }
 }

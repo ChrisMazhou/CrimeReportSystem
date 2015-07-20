@@ -22,6 +22,7 @@ namespace AftaScool.BL.Test.Provider
         [TestCategory("Provider.AssessorSchool")]
         public void saveAssessorSchool()
         {
+            //SetUp
             var user = SeedData.CreateAdminUser(Context);
             IAssessorSchoolProvider provider = new AssessorSchoolProvider(Context,user);
             ISchoolProvider skul = new SchoolProvider(Context, user);
@@ -35,7 +36,8 @@ namespace AftaScool.BL.Test.Provider
           
             //Test
             assessorSchool.ShouldNotBeNull();
-           
+            assessorSchool.Id.ShouldNotBeNull();
+        
         }
 
         [TestMethod]
@@ -54,10 +56,10 @@ namespace AftaScool.BL.Test.Provider
             var assessorSchool2 = provider.saveAssessorSchool(null, assess.Id, skuul2.Id, DateTime.Now, DateTime.Today);
 
             //Act
-            var z = provider.GetAssessorSchool().Count();
+            var schools = provider.GetAssessorSchool().Count();
 
             //Test
-            z.ShouldEqual(2);
+            schools.ShouldEqual(2);
         }
 
 

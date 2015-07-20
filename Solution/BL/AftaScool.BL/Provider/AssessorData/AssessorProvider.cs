@@ -66,7 +66,7 @@ namespace AftaScool.BL.Provider.AssessorData
              createAssessor.UserIdentities.PasswordHash = password;
              createAssessor.UserIdentities.UserName = userName;
              createAssessor.UserIdentities.Gender = gender;
-            createAssessor.UserIdentities.Id = userId;
+             createAssessor.UserIdentities.Id = userId;
 
              DataContextSaveChanges();
             return createAssessor;

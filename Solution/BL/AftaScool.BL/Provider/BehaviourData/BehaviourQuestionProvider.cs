@@ -46,12 +46,6 @@ namespace AftaScool.BL.Provider.BehaviourData
 
             }
 
-           // questionResults = DataContext.BehaviourQuestionSet.Where(a=>a.BehaviourId==behaviourId && a.Id==)
-
-            /*if (info != null)
-                throw new BehaviourException("Behaviour type : " + type + " already exists.");*/
-
-
            if (id != null && id > 0) 
             {
 
@@ -79,26 +73,24 @@ namespace AftaScool.BL.Provider.BehaviourData
 
 
         }
+        public IQueryable<BehaviourQuestion> GetBehaviours()
+        {
+            var q = from h in DataContext.BehaviourQuestionSet
+                    orderby h.Id
+                    select h;
 
-        public BehaviourQuestion GetBehavior(long id)
+            return q;
+        }
+
+        public BehaviourQuestion ArchiveBehaviour(long id)
         {
             Authenticate(PrivilegeType.BehaviourQuestionMaintenance);
             var info = DataContext.BehaviourQuestionSet.Where(a => a.Id == id).SingleOrDefault();
             DataContextSaveChanges();
 
-
-
             return info;
 
-
-
-
-
-
-        }
-
-
-
+         }
 
     }
 }

@@ -20,6 +20,7 @@ namespace AftaScool.BL.Test.Provider
         [TestCategory("Provider.Learner")]
         public void LearnerSave()
         {
+            //SetUp
             var accountUser = SeedData.CreateAdminUser(Context);
             LearnerProvider provider = new LearnerProvider(Context, accountUser);
 
@@ -28,12 +29,12 @@ namespace AftaScool.BL.Test.Provider
            //Test
             learner.ShouldNotBeNull();
             learner.Id.ShouldBeGreaterThan(0);
-          // learner.UserIdentities.Active = true;
+            learner.UserIdentities.Active = true;
         
         }
          [TestMethod]
         [TestCategory("Provider.Learner")]
-        public void GetLearner()
+        public void ArchiveLearners()
         {
             //Setup
             var accountUser = SeedData.CreateAdminUser(Context);
@@ -41,8 +42,8 @@ namespace AftaScool.BL.Test.Provider
             var learner = provider.LearnerSave(null, accountUser.Id, "Test LearnerName", "Test LearnerSurname", "grade", "9202280168083", Entities.SecurityData.GenderType.Female, "address line1", "address line 2", "Centurion", "0124", "0113450000");
            
             //Act
-            provider.GetLearner(learner.Id);
-
+            provider.ArchiveLearner(learner.Id);
+             
             //Test
             var testLearner = provider.GetLearners().Where(a => a.Id == learner.Id).Single();
             testLearner.UserIdentities.Active = true;

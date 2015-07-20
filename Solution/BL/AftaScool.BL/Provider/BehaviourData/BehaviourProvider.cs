@@ -70,9 +70,5 @@ namespace AftaScool.BL.Provider.BehaviourData
 
         }
               
-        public Behaviour GetBehavior(long id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

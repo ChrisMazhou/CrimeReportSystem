@@ -22,8 +22,8 @@ namespace AftaScool.BL.Entities.QuestionnaireData
 
         public virtual long BehaviourQuestionId { get; set; }
         [ForeignKey("BehaviourQuestionId")]
-
         public virtual BehaviourQuestion BehaviourQuestions { get; set; }
+        
         public virtual string Trait { get; set; }
 
 

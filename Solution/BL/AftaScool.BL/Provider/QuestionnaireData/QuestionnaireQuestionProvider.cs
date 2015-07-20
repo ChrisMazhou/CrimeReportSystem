@@ -21,13 +21,14 @@ namespace AftaScool.BL.Provider.QuestionnaireData
         public QuestionnaireQuestion saveQuestion(long? id, long questionnaireId, long behaviourId, string trait)
         {
 
-            Authenticate(PrivilegeType.QuestionnaireQuestionMaintenance);
+          Authenticate(PrivilegeType.QuestionnaireQuestionMaintenance);
 
-            QuestionnaireQuestion saveResults = new QuestionnaireQuestion();
+            QuestionnaireQuestion saveResults = null;
 
-            saveResults = DataContext.QuestionnaireQuestionSet.Where(a => a.BehaviourQuestionId == behaviourId && a.QuestionnaireId == questionnaireId).SingleOrDefault();
+            ///saveResults = DataContext.QuestionnaireQuestionSet.Where(a => a.QuestionnaireId == questionnaireId && a.BehaviourQuestionId == behaviourId).SingleOrDefault();
 
-            if(trait== null)
+           
+            if(trait== null )
                 throw new QuestionnaireQuestionException("Trait cannot be empty");
 
 
@@ -37,7 +38,7 @@ namespace AftaScool.BL.Provider.QuestionnaireData
             {
 
                 saveResults = new QuestionnaireQuestion();
-                DataContextSaveChanges();
+                DataContext.QuestionnaireQuestionSet.Add(saveResults);
 
             }
             saveResults.QuestionnaireId = questionnaireId;

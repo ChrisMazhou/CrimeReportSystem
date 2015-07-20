@@ -49,7 +49,12 @@ namespace AftaScool.BL.Test.Provider
 
 
             //Test
-            var testAssessor = provider.GetAssessor();
+            var testAssessor = provider.GetAssessor().Count();
+
+
+            
+
+
 
 
 

@@ -46,12 +46,6 @@ namespace AftaScool.BL.Provider.BehaviourData
 
             }
 
-           // questionResults = DataContext.BehaviourQuestionSet.Where(a=>a.BehaviourId==behaviourId && a.Id==)
-
-            /*if (info != null)
-                throw new BehaviourException("Behaviour type : " + type + " already exists.");*/
-
-
            if (id != null && id > 0) 
             {
 

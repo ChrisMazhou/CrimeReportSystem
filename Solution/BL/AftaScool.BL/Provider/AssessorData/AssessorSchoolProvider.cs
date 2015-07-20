@@ -25,7 +25,7 @@ namespace AftaScool.BL.Provider.AssessorData
             AssessorSchool AssessorSchoolSave = null;
 
             AssessorSchoolSave = DataContext.AssessorSchoolSet.Where(a => a.AssessorId == assessorId && a.SchoolId == schoolId  && a.StartDate== startDate).SingleOrDefault();
-           
+          
 
             if (startDate == null )
                 throw new AssessorSchoolException("Select the start date");
@@ -46,6 +46,8 @@ namespace AftaScool.BL.Provider.AssessorData
             AssessorSchoolSave.SchoolId = schoolId;
             AssessorSchoolSave.StartDate = startDate;
             AssessorSchoolSave.EndDate = endDate;
+
+            DataContextSaveChanges();
 
             return AssessorSchoolSave;
 

@@ -20,59 +20,66 @@ namespace AftaScool.BL.Test.Provider
     [ExcludeFromCodeCoverage]
     public class QuestionnaireQuestionProviderTest : ProviderTestBase
     {
-       [TestMethod]
-        [TestCategory("Provider.Question")]
-        public void saveQuestionnaire()
+        [TestMethod]
+        [TestCategory("Provider.QuestionaireQuestion")]
+        public void saveQuestionnaireQuestion()
         {
-            var accountUser = SeedData.CreateAdminUser(Context);
-            IBehaviourProvider behaviour = new BehaviourProvider(Context, accountUser);
+            //SetUp
 
-            IBehaviourQuestionProvider behaviourq = new BehaviourQuestionProvider(Context, accountUser);
+            var user = SeedData.CreateAdminUser(Context);
+            IQuestionnaireQuestionProvider provider = new QuestionnaireQuestionProvider(Context, user);
 
-            IQuestionnaireQuestionProvider provider = new QuestionnaireQuestionProvider(Context, accountUser);
-            IQuestionnaireProvider que = new QuestionnaireProvider(Context, accountUser);
-            AssessorProvider assesso = new AssessorProvider(Context, accountUser);
-            ILearnerProvider learner = new LearnerProvider(Context, accountUser);
-            var learn = learner.LearnerSave(null, accountUser.Id, "Test LearnerName", "Test LearnerSurname", "grade", "9202280168083", Entities.SecurityData.GenderType.Female, "address line1", "address line 2", "Centurion", "0124", "0113450000");
-            var ass = assesso.SaveAssessor(null, accountUser.Id,"Test UserName","Test password","Test email","Test Title","Test FirstName","Test Surname","9202280168083",Entities.SecurityData.GenderType.Female,"0124566512","address line1", "address line 2","Centurion", "0124");
-            
+            AssessorProvider assesso = new AssessorProvider(Context, user);
+            ILearnerProvider learner = new LearnerProvider(Context, user);
+            IQuestionnaireProvider que = new QuestionnaireProvider(Context, user);
+            IBehaviourProvider behaviour = new BehaviourProvider(Context, user);
+            IBehaviourQuestionProvider behaviourq = new BehaviourQuestionProvider(Context, user);
+            var learn = learner.LearnerSave(null, user.Id, "Test LearnerName", "Test LearnerSurname", "grade", "9202280168083", Entities.SecurityData.GenderType.Female, "address line1", "address line 2", "Centurion", "0124", "0113450000");
+            var ass = assesso.SaveAssessor(null, user.Id, "Test UserName", "Test password", "Test email", "Test Title", "Test FirstName", "Test Surname", "9202280168083", Entities.SecurityData.GenderType.Female, "0124566512", "address line1", "address line 2", "Centurion", "0124");
+
             var beh = behaviour.saveBehaviour(null, "Rape");
             var questionnaire = que.saveQuestionnaire(null, ass.Id, learn.Id, DateTime.Now);
             var info = behaviourq.bquestion(null, beh.Id, -2, 4);
 
+            //Act
             var question = provider.saveQuestion(null, questionnaire.Id, info.Id, "Luyanda assulted nokuthula");
 
-            
+            //Test
+            question.Id.ShouldNotBeNull();
+            question.Id.ShouldBeGreaterThan(0);
+
         }
         [TestMethod]
-         [TestCategory("Provider.Question")]
-         public void QuestionnaireListTest()
-         {
-             //Setup
-             var accountUser = SeedData.CreateAdminUser(Context);
-             IQuestionnaireQuestionProvider provider = new QuestionnaireQuestionProvider(Context, accountUser);
-             IQuestionnaireProvider que = new QuestionnaireProvider(Context, accountUser);
-             AssessorProvider assesso = new AssessorProvider(Context, accountUser);
-             ILearnerProvider learner = new LearnerProvider(Context, accountUser);
-             var learn = learner.LearnerSave(null, accountUser.Id, "Test LearnerName", "Test LearnerSurname", "grade", "9202280168083", Entities.SecurityData.GenderType.Female, "address line1", "address line 2", "Centurion", "0124", "0113450000");
-             var ass = assesso.SaveAssessor(null, accountUser.Id, "Test UserName", "Test password", "Test email", "Test Title", "Test FirstName", "Test Surname", "9202280168083", Entities.SecurityData.GenderType.Female, "0124566512", "address line1", "address line 2", "Centurion", "0124");
+        [TestCategory("Provider.QuestionaireQuestion")]
+        public void QuestionnaireQuestionListTest()
+        {
+            //SetUp
 
-             IBehaviourProvider behaviour = new BehaviourProvider(Context, accountUser);
-             var beh = behaviour.saveBehaviour(null, "Rape");
-             var beh1 = behaviour.saveBehaviour(null, "Stealling");
-             var questionnaire = que.saveQuestionnaire(null, ass.Id, learn.Id, DateTime.Now);
-           //  var questionnaire1 = que.saveQuestionnaire(null, ass.Id, learn.Id, DateTime.Today.AddDays(3));
+            var user = SeedData.CreateAdminUser(Context);
+            IQuestionnaireQuestionProvider provider = new QuestionnaireQuestionProvider(Context, user);
 
-             var lea = provider.saveQuestion(null, questionnaire.Id, beh.Id, "Luyanda Raped Sifiso Mazibuko Eish am not Safe");
-            // var lea2 = provider.saveQuestion(null, questionnaire1.Id, beh.Id, "Luyanda Raped Sifiso");
-             //Act
-             var x = provider.getQuestions().Count();
+            AssessorProvider assesso = new AssessorProvider(Context, user);
+            ILearnerProvider learner = new LearnerProvider(Context, user);
+            IQuestionnaireProvider que = new QuestionnaireProvider(Context, user);
+            IBehaviourProvider behaviour = new BehaviourProvider(Context, user);
+            IBehaviourQuestionProvider behaviourq = new BehaviourQuestionProvider(Context, user);
+            var learn = learner.LearnerSave(null, user.Id, "Test LearnerName", "Test LearnerSurname", "grade", "9202280168083", Entities.SecurityData.GenderType.Female, "address line1", "address line 2", "Centurion", "0124", "0113450000");
+            var ass = assesso.SaveAssessor(null, user.Id, "Test UserName", "Test password", "Test email", "Test Title", "Test FirstName", "Test Surname", "9202280168083", Entities.SecurityData.GenderType.Female, "0124566512", "address line1", "address line 2", "Centurion", "0124");
 
-             //Test
+            var beh = behaviour.saveBehaviour(null, "Rape");
+            var questionnaire = que.saveQuestionnaire(null, ass.Id, learn.Id, DateTime.Now);
+            var info = behaviourq.bquestion(null, beh.Id, -2, 4);
 
-             x.ShouldEqual(1);
-             
+            //Act
+            var question = provider.saveQuestion(null, questionnaire.Id, info.Id, "Luyanda assulted nokuthula");
+            var question1 = provider.saveQuestion(null, questionnaire.Id, info.Id, "Luyanda assulted piet");
 
-         }
+            //Test
+            var x = provider.getQuestions().Count();
+
+            x.ShouldEqual(2);
+
+
+        }
     }
 }

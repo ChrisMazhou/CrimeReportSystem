@@ -83,7 +83,7 @@ namespace AftaScool.BL.Provider.LearnerData
             return q;
         }
 
-        public void GetLearner(long id)
+        public void ArchiveLearner(long id)
         {
             Authenticate(PrivilegeType.LearnerMaintenance);
 

@@ -49,8 +49,10 @@ namespace AftaScool.BL.Provider.AssessorData
 
             DataContextSaveChanges();
 
-            return AssessorSchoolSave;
+            DataContextSaveChanges();
 
+            return AssessorSchoolSave;
+            
         }
 
         public IQueryable<AssessorSchool> GetAssessorSchool()

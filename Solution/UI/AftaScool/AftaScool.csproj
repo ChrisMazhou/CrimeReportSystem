@@ -27,7 +27,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -145,10 +145,12 @@
     <Compile Include="Models\GridModel.cs" />
     <Compile Include="Models\GridResultModel.cs" />
     <Compile Include="Models\KeyValueModel.cs" />
-    <Compile Include="Models\Project\ProjectModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\Controllers\HomeController.js" />
+    <Content Include="app\Controllers\LoginController.js" />
+    <Content Include="app\Controllers\RegisterController.js" />
     <Content Include="app\Services\AccountService.js" />
     <Content Include="app\Services\AuthHttpResponseInterceptor.js" />
     <Content Include="app\Services\HomeService.js" />
@@ -157,6 +159,7 @@
     <Content Include="app\Services\Security.js" />
     <Content Include="app\Views\Account\Login.html" />
     <Content Include="app\Views\Account\Register.html" />
+    <Content Include="app\Views\AngularApp.js" />
     <Content Include="app\Views\Home\Home.html" />
     <Content Include="app\Views\MasterData\SchoolMaintenance.html" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -177,7 +180,12 @@
     <Content Include="Scripts\angular-cookies.js" />
     <Content Include="Scripts\angular-cookies.min.js" />
     <Content Include="Scripts\angular-csp.css" />
+    <Content Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\angular-input-match.js" />
+    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\lib\angular-input-match.js" />
@@ -957,6 +965,7 @@
     <Content Include="Scripts\lib\loading-bar.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\lib\showErrors.js" />
+    <Content Include="Scripts\showErrors.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -972,7 +981,6 @@
     <Content Include="Scripts\jquery-2.1.4.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\Controllers\" />
     <Folder Include="app\Directives\" />
     <Folder Include="App_Data\" />
   </ItemGroup>

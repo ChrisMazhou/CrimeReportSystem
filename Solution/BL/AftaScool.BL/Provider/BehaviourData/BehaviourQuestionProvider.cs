@@ -73,26 +73,24 @@ namespace AftaScool.BL.Provider.BehaviourData
 
 
         }
+        public IQueryable<BehaviourQuestion> GetBehaviours()
+        {
+            var q = from h in DataContext.BehaviourQuestionSet
+                    orderby h.Id
+                    select h;
 
-        public BehaviourQuestion GetBehavior(long id)
+            return q;
+        }
+
+        public BehaviourQuestion ArchiveBehaviour(long id)
         {
             Authenticate(PrivilegeType.BehaviourQuestionMaintenance);
             var info = DataContext.BehaviourQuestionSet.Where(a => a.Id == id).SingleOrDefault();
             DataContextSaveChanges();
 
-
-
             return info;
 
-
-
-
-
-
-        }
-
-
-
+         }
 
     }
 }

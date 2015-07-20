@@ -19,11 +19,11 @@ namespace AftaScool
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
 
-            routes.MapRoute(
-                "NotFound",
-                "{*url}",
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+            //routes.MapRoute(
+            //    "NotFound",
+            //    "{*url}",
+            //    new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            //);
         }
     }
 }

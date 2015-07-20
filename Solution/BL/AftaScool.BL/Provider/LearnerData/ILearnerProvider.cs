@@ -17,7 +17,7 @@ namespace AftaScool.BL.Provider.LearnerData
 
         IQueryable<Learner> GetLearners();
 
-        void GetLearner(long id);
+        void ArchiveLearner(long id);
 
 
     }

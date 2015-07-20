@@ -12,7 +12,9 @@ namespace AftaScool.BL.Provider.BehaviourData
 
         BehaviourQuestion bquestion(long? id, long behaviourId, double minimumWeighting, double maximumWeighting);
 
-        BehaviourQuestion GetBehavior(long id);
+        IQueryable<BehaviourQuestion> GetBehaviours();
+
+        BehaviourQuestion ArchiveBehaviour(long id);
 
 
 

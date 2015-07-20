@@ -47,8 +47,10 @@ namespace AftaScool.BL.Provider.AssessorData
             AssessorSchoolSave.StartDate = startDate;
             AssessorSchoolSave.EndDate = endDate;
 
-            return AssessorSchoolSave;
+            DataContextSaveChanges();
 
+            return AssessorSchoolSave;
+            
         }
 
         public IQueryable<AssessorSchool> GetAssessorSchool()

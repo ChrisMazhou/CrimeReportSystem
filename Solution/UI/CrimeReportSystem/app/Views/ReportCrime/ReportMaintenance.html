@@ -1,0 +1,66 @@
+﻿<br />
+<input name="type" type="text" ng-model="searchQuery" class="col-sm-10" placeholder="search crimes..." />
+<br />
+<br />
+
+
+<div class="row top-buffer">
+    <table class="table table-bordered table-striped table-responsive">
+        <thead>
+            <tr>
+                <th>
+                    <a ng-click="sort('status')">Crime Status</a>
+                    <i ng-class="{'glyphicon glyphicon-chevron-up':sortKeyOrder.order=='ASC' && sortKeyOrder.key=='status'}"></i>
+                    <i ng-class="{'glyphicon glyphicon-chevron-down':sortKeyOrder.order=='DESC' && sortKeyOrder.key=='status'}"></i>
+                </th>
+                <th>
+                    <a ng-click="sort('name')">Name</a>
+                    <i ng-class="{'glyphicon glyphicon-chevron-up':sortKeyOrder.order=='ASC' && sortKeyOrder.key=='name'}"></i>
+                    <i ng-class="{'glyphicon glyphicon-chevron-down':sortKeyOrder.order=='DESC' && sortKeyOrder.key=='name'}"></i>
+                </th>
+                <th>
+                    <a ng-click="sort('contactNo')">Contact No</a>
+                    <i ng-class="{'glyphicon glyphicon-chevron-up':sortKeyOrder.order=='ASC' && sortKeyOrder.key=='contactNo'}"></i>
+                    <i ng-class="{'glyphicon glyphicon-chevron-down':sortKeyOrder.order=='DESC' && sortKeyOrder.key=='contactNo'}"></i>
+                </th>
+                <th>
+                    <a ng-click="sort('typeOfCrime')">Type of Crimes</a>
+                    <i ng-class="{'glyphicon glyphicon-chevron-up':sortKeyOrder.order=='ASC' && sortKeyOrder.key=='typeOfCrime'}"></i>
+                    <i ng-class="{'glyphicon glyphicon-chevron-down':sortKeyOrder.order=='DESC' && sortKeyOrder.key=='typeOfCrime'}"></i>
+                </th>
+                <th>
+                    <a ng-click="sort('location')">Location</a>
+                    <i ng-class="{'glyphicon glyphicon-chevron-up':sortKeyOrder.order=='ASC' && sortKeyOrder.key=='location'}"></i>
+                    <i ng-class="{'glyphicon glyphicon-chevron-down':sortKeyOrder.order=='DESC' && sortKeyOrder.key=='location'}"></i>
+                </th>
+                <th>
+                    <a ng-click="sort('date')">Date Reported</a>
+                    <i ng-class="{'glyphicon glyphicon-chevron-up':sortKeyOrder.order=='ASC' && sortKeyOrder.key=='date'}"></i>
+                    <i ng-class="{'glyphicon glyphicon-chevron-down':sortKeyOrder.order=='DESC' && sortKeyOrder.key=='date'}"></i>
+                </th>
+                <th>
+                    <a ng-click="sort('time')">Time Reported</a>
+                    <i ng-class="{'glyphicon glyphicon-chevron-up':sortKeyOrder.order=='ASC' && sortKeyOrder.key=='time'}"></i>
+                    <i ng-class="{'glyphicon glyphicon-chevron-down':sortKeyOrder.order=='DESC' && sortKeyOrder.key=='time'}"></i>
+                </th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody data-ng-repeat="i in reportGrid | filter:searchQuery ">
+            <tr>
+                <td>{{i.status}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.contactNo}}</td>
+                <td>{{i.typeOfCrime}}</td>
+                <td>{{i.location}}</td>
+                <td>{{i.date}}</td>
+                <td>{{i.time}}</td>
+                <td><a href="/#/Testing/{{i.id}}" class="glyphicon glyphicon-edit">Send Details</a></td>
+            </tr>
+
+        </tbody> 
+    </table>
+
+    <span data-pagination data-total-items="totalItems" data-ng-model="currentPage" data-max-size="numberOfPageButtons" class=" pagination-sm" data-boundary-links="true" data-rotate="false" data-ng-change="pageChanged()" data-items-per-page="recordsPerPage"></span>
+
+</div>

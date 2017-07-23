@@ -1,0 +1,18 @@
+﻿<br />
+<br />
+    
+ <link href="Content/styles.css" rel="stylesheet" type="text/css" />
+<form role="form" name="NewReportForm" class="form-horizontal"  novalidate>
+    <fieldset>
+        <legend>Testing Crime Report</legend>
+    </fieldset> 
+    <div class="col-sm-offset-3 col-sm-9">
+        <input type="submit" class="btn btn-primary" value="Refresh Report" ng-click="submitForm()" />
+    </div>
+
+    <div class="col-sm-12">
+        <br />
+        <div class="alert alert-danger" ng-if="hasError">{{errorMessage}}</div>
+    </div>
+
+</form>

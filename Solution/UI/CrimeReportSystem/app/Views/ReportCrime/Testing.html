@@ -1,0 +1,56 @@
+﻿<br/>
+<br/>
+<h1>The following Message Has Been Submited To the Police</h1>
+
+<div class="row top-buffer">
+    
+    <table class="table table-bordered table-striped table-responsive">
+        <thead>
+            <tr>
+                <th>
+                    Status
+
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Contact No
+
+                </th>
+                <th>
+                    Type of Crimes
+                    
+                </th>
+                <th>
+                    Location
+                  
+                </th>
+                <th>
+                    Date Reported
+                   
+                </th>
+                <th>
+                    Time Reported
+               
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{reportModel.status}}</td>
+                <td>{{reportModel.name}}</td>
+                <td>{{reportModel.contactNo}}</td>
+                <td>{{reportModel.typeOfCrime}}</td>
+                <td>{{reportModel.location}}</td>
+                <td>{{reportModel.date}}</td>
+                <td>{{reportModel.time}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <span data-pagination data-total-items="totalItems" data-ng-model="currentPage" data-max-size="numberOfPageButtons" class=" pagination-sm" data-boundary-links="true" data-rotate="false" data-ng-change="pageChanged()" data-items-per-page="recordsPerPage"></span>
+
+</div>

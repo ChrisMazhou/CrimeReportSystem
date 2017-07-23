@@ -104,20 +104,14 @@ namespace TCR.Lib.BL
 
         public void Authenticate(TPrivilegeTypeEnum privelege)
         {
-            
-            try
-            {
+
+            return;
                 if (!UserIsAllowed(privelege))
                 { throw new GenericSecurityException("Not Allowed!"); }
-                return;
-            }
-            catch (GenericSecurityException)
-            {
-                
-               
-            }
             
-              //  return;
+            
+               
+            
         }
 
       

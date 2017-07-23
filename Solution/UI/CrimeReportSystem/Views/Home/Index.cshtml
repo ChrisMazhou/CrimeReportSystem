@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html ng-app="AngularApp" ng-controller="HomeController">
+<head>
+    <base href="~/">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+   
+    @Scripts.Render("~/bundles/AngularApp")
+ 
+
+</head>
+
+<body>
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div cla></div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" ng-click="navbarProperties.isCollapsed = !navbarProperties.isCollapsed">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Crime Report Analysis</a>
+            </div>
+          
+                <div class="navbar-collapse collapse" collapse="navbarProperties.isCollapsed">
+                    <ul class="nav navbar-nav" ng-show="currentUser.loggedIn">
+
+                       
+                        <li><a href="/#/ReportCrime"><b>Reported Crimes</b></a></li>
+                        <li><a href="/#/ReportCrimes"><b>Crime Maintanaces</b></a></li>
+                        <li><a href="/#/register"><b>Register Adminitrator</b></a></li>
+                                       
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right" ng-show="!currentUser.loggedIn">
+                        <li><a href="/#/login"><b>Login</b></a></li>
+                       
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right" ng-show="currentUser.loggedIn">
+                        <li><a href="/#/myProfile">Welcome <b>{{currentUser.displayName}}</b></a></li>
+                    </ul>
+
+
+
+
+                </div>
+           
+        </div>
+    </div>
+
+
+
+    <div class="container mainContent">
+        <br />
+        <div ng-view>
+
+        </div>
+    </div>
+    <div class="container body-content">
+        <hr />
+        <footer>
+             <p>&copy; @DateTime.Now.Year - Crime Systems</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>
+
